@@ -4,7 +4,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import com.hello.hello.entity.Student;
 
-
 @RepositoryRestResource(collectionResourceRel= "students", path="students")
 
 // /students = GET
@@ -16,5 +15,5 @@ import com.hello.hello.entity.Student;
 public interface StudentRepository extends PagingAndSortingRepository<Student,Long>, CrudRepository<Student,Long> {
 
     //Mapping personalizados
-    
+
 }
