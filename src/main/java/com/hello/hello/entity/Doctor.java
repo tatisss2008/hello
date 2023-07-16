@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+// import jakarta.persistence.JoinColumn;
+// import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Doctor{
@@ -18,10 +20,16 @@ public class Doctor{
     private String name;    
     private String lastName;    
     private String email;
-    private String mobile;
+    private String mobile;    
     private String consultorio;
 
-    
+    // //Relaciones
+    // @ManyToOne
+    // @JoinColumn(name="especialidad_id")
+
+    // //LLave Foreanea
+    // private Especialidad especialidad;
+
 
     //Constructor
     public Doctor(){

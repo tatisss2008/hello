@@ -24,9 +24,9 @@ public class Student{
     //Relaciones
     @ManyToOne
     @JoinColumn(name="advisor_id")
-
-    //LLave Foreanea
+    //Llave foranea    
     private Advisor advisor;
+
 
     //Constructor
     public Student(){
