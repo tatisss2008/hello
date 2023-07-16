@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Student{
@@ -17,7 +19,14 @@ public class Student{
     private Long id;
     private String name;
     private String email;
-    private LocalDate dateOfBirth;
+    private LocalDate dateOfBirth; //date_of_birth
+
+    //Relaciones
+    @ManyToOne
+    @JoinColumn(name="advisor_id")
+
+    //LLave Foreanea
+    private Advisor advisor;
 
     //Constructor
     public Student(){
