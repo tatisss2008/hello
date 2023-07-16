@@ -21,8 +21,8 @@ public class Advisor {
     private String phone;
 
     //Relaciones
-    @OneToMany(mappedBy = "advisor")
-    private List<Student> students= new ArrayList<>();
+    // @OneToMany(mappedBy = "advisor")
+    // private List<Student> students= new ArrayList<>();
 
     //7Constructior
     public Advisor() {
