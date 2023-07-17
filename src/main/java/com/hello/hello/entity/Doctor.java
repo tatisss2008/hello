@@ -1,12 +1,16 @@
 package com.hello.hello.entity;
 
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-// import jakarta.persistence.JoinColumn;
-// import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
 
 @Entity
 public class Doctor{
@@ -29,6 +33,14 @@ public class Doctor{
 
     // //LLave Foreanea
     // private Especialidad especialidad;
+
+    
+    @ManyToOne
+    @JoinColumn(name="especialidad_id")
+    private Especialidad especialidad;
+
+    @OneToMany (mappedBy = "doctor")
+    private List<Cita> citas;
 
 
     //Constructor

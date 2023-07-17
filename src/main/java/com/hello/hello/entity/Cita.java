@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Cita{
@@ -14,21 +16,45 @@ public class Cita{
      */
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
-    private Long idPaciente;
-    private Long idDoctor;    
+    private Long id;    
     private LocalDate dateAppointment;
+
+    //Relaciones
+    @ManyToOne  
+    @JoinColumn(name="doctor_id")
+    private Doctor doctor;
+
+    @ManyToOne
+    @JoinColumn(name="paciente_id")
+    private Paciente paciente;
 
     //Constructor
     public Cita(){
 
     }
+ 
+    public Cita(Long id, LocalDate dateAppointment, Doctor doctor, Paciente paciente) {
+        this.id = id;
+        this.dateAppointment = dateAppointment;
+        this.doctor = doctor;
+        this.paciente = paciente;
+    }
 
-    public Cita ( Long id ,Long idPaciente, Long idDoctor, LocalDate dateAppointment ){
-        this.id=id;
-        this.idPaciente=idPaciente;
-        this.idDoctor=idDoctor;
-        this.dateAppointment=dateAppointment;
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
 
     public Long getId() {
@@ -37,22 +63,6 @@ public class Cita{
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getIdPaciente() {
-        return idPaciente;
-    }
-
-    public void setIdPaciente(Long idPaciente) {
-        this.idPaciente = idPaciente;
-    }
-
-    public Long getIdDoctor() {
-        return idDoctor;
-    }
-
-    public void setIdDoctor(Long idDoctor) {
-        this.idDoctor = idDoctor;
     }
 
     public LocalDate getDateAppointment() {

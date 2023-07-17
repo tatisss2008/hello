@@ -1,14 +1,15 @@
 package com.hello.hello.entity;
 
 
+import java.util.List;
+
 // import java.util.ArrayList;
-// import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-// import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Especialidad{
@@ -24,6 +25,9 @@ public class Especialidad{
     // @OneToMany(mappedBy = "especialidad")
     // private List<Doctor> doctores= new ArrayList<>();
 
+    @OneToMany(mappedBy = "especialidad")
+    private List<Doctor> doctores;
+    
 
     //Constructor
     public Especialidad(){

@@ -1,11 +1,13 @@
 package com.hello.hello.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Paciente{
@@ -21,6 +23,10 @@ public class Paciente{
     private String email;
     private String mobile;
     private LocalDate dateOfBirth;
+
+    //Relaciones
+    @OneToMany(mappedBy = "paciente")
+    private List<Cita> citas;
 
     //Constructor
     public Paciente(){
